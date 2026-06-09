@@ -3,78 +3,71 @@ import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCartAdd } from "react-icons/bi";
 
+import classes from "./Header.module.css";
+
 const Header = () => {
   return (
-    <>
-      {/* Amazone clone */}
-      <section>
-        <section>
+    <header className={classes.header_container}>
+      {/* Logo + Delivery */}
+      <div className={classes.logo_container}>
+        <a href="/">
+          <img
+            src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png"
+            alt="Amazon Logo"
+          />
+        </a>
+
+        <div className={classes.Delivery_location}>
+          <SlLocationPin />
           <div>
-            {/* header logo */}
-            <a href="/">
-              <img
-                src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png"
-                alt="amazon logo"
-              />
-            </a>
-
-            <span>
-              <SlLocationPin />
-            </span>
-            <div>
-              <p>Deliver to</p>
-              <span>Ethiopia</span>
-            </div>
+            <p>Deliver to</p>
+            <span>Ethiopia</span>
           </div>
+        </div>
+      </div>
 
-          <div>
-            {/* search  */}
-            <select name="" id="">
-              <option value="">All</option>
-            </select>
-            <input type="text" placeholder="Search Amazon" />
-            <BsSearch />
-          </div>
+      {/* Search */}
+      <div className={classes.search}>
+        <select>
+          <option>All</option>
+        </select>
 
-          <div>
-            <img
-              src="https://pngimg.com/uploads/flags/small/flags_PNG14592.png"
-              alt="USA flag"
-            />
+        <input type="text" placeholder="Search Amazon" />
 
-            <select>
-              <option value="">EN</option>
-            </select>
-          </div>
+        <BsSearch />
+      </div>
 
-          {/* three components */}
+      {/* Language */}
+      <div className={classes.language}>
+        <img
+          src="https://pngimg.com/uploads/flags/small/flags_PNG14592.png"
+          alt="USA Flag"
+        />
 
-          <a href="">
-            <div>
-              <p>Hello, Sign In</p>
+        <select>
+          <option>EN</option>
+        </select>
+      </div>
 
-              <span>
-                <select>
-                  <option value="">Account & Lists</option>
-                </select>
-              </span>
-            </div>
-          </a>
+      {/* Account */}
+      <a href="/" className={classes.nav_item}>
+        <p>Hello, Sign in</p>
+        <span>Account & Lists</span>
+      </a>
 
-          {/* order */}
-          <a href="">
-            <p>Returns</p>
-            <span>& Orders</span>
-          </a>
-          {/* cart */}
-          <a href="/">
-            <BiCartAdd />
-            <span>0 </span>
-            <p>Cart</p>
-          </a>
-        </section>
-      </section>
-    </>
+      {/* Orders */}
+      <a href="/" className={classes.nav_item}>
+        <p>Returns</p>
+        <span>& Orders</span>
+      </a>
+
+      {/* Cart */}
+      <a href="/" className={classes.cart}>
+        <BiCartAdd />
+        <span>0</span>
+        <p>Cart</p>
+      </a>
+    </header>
   );
 };
 

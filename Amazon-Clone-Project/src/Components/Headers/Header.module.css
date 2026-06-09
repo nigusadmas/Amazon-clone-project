@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header_container {
+  background-color: #131921;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 20px;
+  gap: 15px;
+}
+
+/* Logo */
+.logo_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo_container img {
+  width: 100px;
+  object-fit: contain;
+  padding: 5px;
+}
+.logo_container img:hover {
+  border: 1px solid white;
+}
+
+/* Delivery */
+.Delivery_location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.Delivery_location:hover {
+  border: 1px solid white;
+}
+
+.Delivery_location p {
+  font-size: 10px;
+  color: #ccc;
+}
+
+.Delivery_location span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Search Bar */
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 10px;
+  width: 700px;
+}
+
+.search select {
+  height: 100%;
+  width: 60px;
+  border: none;
+  background: #f3f3f3;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.search input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.search svg {
+  background: #febd69;
+  color: black;
+  height: 100%;
+  width: 45px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search svg:hover {
+  background: #f3a847;
+}
+
+.search:focus-within {
+  outline: 3px solid #ff9900;
+}
+
+/* Language */
+.language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+
+  padding: 12px 5px;
+}
+
+.language img {
+  width: 25px;
+}
+
+.language:hover {
+  border: 1px solid white;
+}
+
+/* Sign In */
+.nav_item {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav_item:hover {
+  border: 1px solid white;
+}
+
+.nav_item p {
+  font-size: 12px;
+}
+
+.nav_item span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Cart */
+.cart {
+  display: flex;
+  align-items: flex-end;
+  color: white;
+  text-decoration: none;
+  gap: 3px;
+  padding: 5px;
+}
+
+.cart:hover {
+  border: 1px solid white;
+}
+
+.cart svg {
+  font-size: 35px;
+}
+
+.cart span {
+  color: #f08804;
+  font-weight: bold;
+}
+
+.cart p {
+  font-weight: bold;
+}
