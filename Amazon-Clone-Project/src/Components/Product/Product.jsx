@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import styles from "./Product.module.css";
+import Loader from "../Loader/Loader";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -13,16 +15,23 @@ const Product = () => {
         setProducts(res.data);
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.error("Could not load products:", err);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
-    <section className={styles.productsContainer}>
-      {products.map((singleProduct) => (
-        <ProductCard product={singleProduct} key={singleProduct.id} />
-      ))}
-    </section>
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section className={styles.productsContainer}>
+          {products.map((singleProduct) => (
+            <ProductCard product={singleProduct} key={singleProduct.id} />
+          ))}
+        </section>
+      )}
+    </div>
   );
 };
 
