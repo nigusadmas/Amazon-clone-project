@@ -59,7 +59,7 @@ function Cart() {
                   <CurrencyFormat amount={subtotal} />
                 </strong>
               </p>
-              <Link to="/payments">
+              <Link to="/payment">
                 <button className={styles.checkoutButton} type="button">
                   Proceed to checkout
                 </button>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
-
+import { auth } from "../../Utility/firebase";
 import { Link } from "react-router-dom";
 
 import classes from "./Header.module.css";
@@ -10,7 +10,7 @@ import { DataContext } from "../DataProvider/DataProvider";
 import LowerHeader from "../../Components/Headers/LowerHeader";
 
 const Header = () => {
-  const [{ basket = [] }] = useContext(DataContext);
+  const [{ user, basket = [] }] = useContext(DataContext);
   const cartItemCount = basket.reduce(
     (total, item) => total + (item.quantity || 1),
     0,
@@ -61,9 +61,23 @@ const Header = () => {
         </div>
 
         {/* Account */}
-        <Link to="/auth" className={classes.nav_item}>
-          <p>Hello, Sign in</p>
-          <span>Account & Lists</span>
+        <Link to={!user && "/auth"} className={classes.nav_item}>
+          <div>
+            {user ? (
+              <>
+                <p>Hello , {user?.email?.split("@")[0]}</p>
+
+                <span onClick={() => auth.signOut()}>
+                  <b style={{ color: "red", paddingTop: "10px" }}>SignOut</b>
+                </span>
+              </>
+            ) : (
+              <>
+                <p>Hello, Sign in</p>
+                <span>Account & Lists</span>
+              </>
+            )}
+          </div>
         </Link>
 
         {/* Orders */}
